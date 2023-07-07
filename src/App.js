@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [val, setVal] = useState("Hello World")
+  const click = () => { alert(val) }
+  const change = event => { setVal(event.target.value) }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +21,12 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+        </a>
+
+        <a>
+          <input onChange={change} value = {val}>
+            <button onClick = {click}> Click me</button>
+          </input>
         </a>
       </header>
     </div>
