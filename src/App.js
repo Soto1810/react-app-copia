@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import {Text, StyleSheet} from 'react-native';
 
 function App() {
   const [val, setVal] = useState("Hello World")
   //const click = () => { alert("Valor introducido: " + val) }
   const change = event => { setVal(event.target.value) }
   //const saveInput = () => {list.push(val)};
-  let list = [];
+  const list = [];
 
   return (
     <div className="App">
@@ -28,14 +29,12 @@ function App() {
           <input onChange={change} value = {val}/>
           <button onClick = {
             () => {
-              alert("Valor introducido: " + val);
               list.push(val);
+              alert(list);
             }
-          }> Click me</button>
+          }> Save value</button>
         </a>
-        <a>
-          {list}
-        </a>
+        
       </header>
     </div>
   );
