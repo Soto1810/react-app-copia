@@ -8,10 +8,11 @@ function App() {
   //const click = () => { alert("Valor introducido: " + val) }
   const change = event => { setVal(event.target.value) }
   //const saveInput = () => {list.push(val)};
-  const list = [];
+  
 
   return (
     <div className="App">
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p> 
@@ -29,6 +30,7 @@ function App() {
           <input onChange={change} value = {val}/>
           <button onClick = {
             () => {
+              const list = [];
               list.push(val);
               alert(list);
             }
