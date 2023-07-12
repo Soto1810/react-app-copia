@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project was born with a single functionality in mind: to get a notification whenever an item was uploaded to a page and contained one or more tokens already specified by the user.
 
-_12-07-2023:_ First day giving status of the functionality. Tokens can be added and removed, and the list ocntaining them can be displayed, but the web contents can´t be fetched. Working on that functionality next.
+_12-07-2023:_ First day giving status of the functionality. Tokens can be added and removed, and the list containing them can be displayed, but the web contents can´t be fetched. Working on that functionality next.
 
 ## Available Scripts
 
