@@ -6,11 +6,22 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.0.0",
     "axios": "^1.4.0",
+    "cookie": "^0.4.1",
+    "https-proxy-agent": "^5.0.0",
+    "jest": "^27.0.6",
+    "net": "^1.0.2",
+    "node-fetch": "^2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.19.6",
     "react-scripts": "5.0.1",
+    "tls": "^0.0.1",
+    "url": "^0.11.1",
+    "user-agents": "^1.0.642",
+    "useragent": "^2.3.0",
+    "vinted-api": "^2.9.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,9 +47,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "JavaScript library to interact with the Vinted API",
+  "main": "index.js",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Androz2091/vinted-api.git"
   }
-
-  
 }
-
-

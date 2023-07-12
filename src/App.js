@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { fetchCookie, parseVintedURL, search } from '.';
+const vinted = require('vinted-api');
+//import  from 'vinted-api'; 
 
 function App() {
   const [inputValue, setInputValue] = useState('');
@@ -58,24 +61,31 @@ function App() {
     //launch readWeb or directly read web content and save to variable
     try {
       const webURL = new URL(winput);
-      readWeb(webURL);
+      // console.log(readWeb(webURL));
+      // vinted.search(webURL).then((posts) => {
+      //   console.log(posts); // all the posts that match this query
+      // });
+      vinted.search('https://www.vinted.es/catalog?search_text=bionicle').then((posts) => {
+        console.log(posts); // all the posts that match this query
+      });
     } catch (error) {
       setWebInput('');
       alert(error);
     }
   };
 
-  async function readWeb(strInput) {
-    try {
-      let response = await fetch(strInput)
-      .then(response => {
-        return response.json();
-      })
-      console.log(response);
-    } catch (error) {
-      alert(error);
-    }
-  }
+  // function readWeb(strInput) {
+  //   try {
+  //     let ret = '';
+  //     vinted.search(strInput).then((posts) => {
+  //       ret = posts// all the posts that match this query
+  //     });
+  //     return ret;
+  //     //console.log(response);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }
 
   return (
     <div className="App">
