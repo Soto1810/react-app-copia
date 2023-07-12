@@ -58,7 +58,7 @@ function App() {
       alert('[Empty web link]')
       return;
     }
-    //launch readWeb or directly read web content and save to variable
+    
     try {
       const webURL = new URL(winput);
       // console.log(readWeb(webURL));
