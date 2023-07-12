@@ -5,14 +5,15 @@ import { useState } from 'react';
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [records, setRecords] = useState([]);
+  const [webInput, setWebInput] = useState('');
 
   const handleAddRecord = () => {
     const record = inputValue.trim();
-    if (!record) {
+    if(!record) {
       alert('No value inserted');
       return;
     }
-    if (records.includes(record)) {
+    if(records.includes(record)) {
       alert('Duplicated token');
       return;
     }
@@ -21,7 +22,7 @@ function App() {
   };
 
   const handleDisplayAll = () => {
-    if (records.length === 0) {
+    if(records.length === 0) {
       alert('[Empty list]');
       return;
     }
@@ -30,15 +31,15 @@ function App() {
 
   const handleRemoveRecord = () => {
     const record = inputValue.trim();
-    if (!record) {
+    if(!record) {
       alert('No value inserted');
       return;
     }
-    if (records.length === 0) {
+    if(records.length === 0) {
       alert('[Empty list]');
       return;
     }
-    if (!records.includes(record)) {
+    if(!records.includes(record)) {
       alert('Non-existing value');
       return;
     }
@@ -46,6 +47,19 @@ function App() {
     setRecords(updatedRecords);
     setInputValue('');
     alert('Successfully removed ' + record);
+  };
+
+  const handleSearch = () => {
+    const winput = webInput.trim();
+    if(!winput) {
+      alert('[Empty web link]')
+      return;
+    }
+    //lanzar readWeb o directamente meter aqui la lectura de web a un string
+  };
+
+  const readWeb = () => {
+
   };
 
   return (
@@ -85,13 +99,18 @@ function App() {
               <tr>
                 <td>Web link</td>
                 <td>
-                  <input type="text" placeholder="Token" />
+                  <input
+                    type="text"
+                    value={webInput}
+                    onChange={(e) => setWebInput(e.target.value)}
+                    placeholder="Web"
+                  />
                 </td>
               </tr>
               <tr>
                 <td></td>
                 <td>
-                  <button type="button">Search!</button>
+                  <button type="button" onClick={handleSearch}>Search!</button>
                 </td>
               </tr>
             </tbody>
