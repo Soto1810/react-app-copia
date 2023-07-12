@@ -79,7 +79,6 @@ function App() {
                   <button type="button" onClick={handleRemoveRecord}>
                     Remove
                   </button>
-                  <button type="button">Search!</button>
                 </td>
               </tr>
               <tr>----------------------------</tr>
