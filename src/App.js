@@ -9,11 +9,11 @@ function App() {
 
   const handleAddRecord = () => {
     const record = inputValue.trim();
-    if(!record) {
+    if (!record) {
       alert('No value inserted');
       return;
     }
-    if(records.includes(record)) {
+    if (records.includes(record)) {
       alert('Duplicated token');
       return;
     }
@@ -22,7 +22,7 @@ function App() {
   };
 
   const handleDisplayAll = () => {
-    if(records.length === 0) {
+    if (records.length === 0) {
       alert('[Empty list]');
       return;
     }
@@ -31,15 +31,15 @@ function App() {
 
   const handleRemoveRecord = () => {
     const record = inputValue.trim();
-    if(!record) {
-      alert('No value inserted');
+    if (!record) {
+      alert('No value to remove');
       return;
     }
-    if(records.length === 0) {
+    if (records.length === 0) {
       alert('[Empty list]');
       return;
     }
-    if(!records.includes(record)) {
+    if (!records.includes(record)) {
       alert('Non-existing value');
       return;
     }
@@ -51,16 +51,31 @@ function App() {
 
   const handleSearch = () => {
     const winput = webInput.trim();
-    if(!winput) {
+    if (!winput) {
       alert('[Empty web link]')
       return;
     }
-    //lanzar readWeb o directamente meter aqui la lectura de web a un string
+    //launch readWeb or directly read web content and save to variable
+    try {
+      const webURL = new URL(winput);
+      readWeb(webURL);
+    } catch (error) {
+      setWebInput('');
+      alert(error);
+    }
   };
 
-  const readWeb = () => {
-
-  };
+  async function readWeb(strInput) {
+    try {
+      let response = await fetch(strInput)
+      .then(response => {
+        return response.json();
+      })
+      console.log(response);
+    } catch (error) {
+      alert(error);
+    }
+  }
 
   return (
     <div className="App">
@@ -71,7 +86,7 @@ function App() {
           <table>
             <tbody>
               <tr>
-                <td>Enter the token</td>
+                <td>Enter the search tokens</td>
                 <td>
                   <input
                     type="text"
